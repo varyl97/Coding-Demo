@@ -22,7 +22,17 @@ x<-rnorm(100, mean=0, sd=1) #indep. variable
 noise<-rnorm(100,mean=0,sd=1)  
 y<-m*x+b+noise #linear relationship + noise 
 
-plot(x,y)
+par(mar=c(6,7,4,1))
+plot(x,y,xlab='Normalized velocity',
+         ylab='Normalized\nenergy consumption') #the \n causes 2nd line in label
+
+
+# Do linear regression ----------------------------------------------------
+
+fit<-glm(y~x) #generalized linear model 
+abline(fit,col='red')
+
+# Plot the results --------------------------------------------------------
 
 
 
