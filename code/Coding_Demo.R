@@ -10,11 +10,17 @@
 
 
 # Loading data that may not be in wd folder -------------------------------
+#NOTE: set working directory to code folder in repo 
 getwd()
 
-file<-load(file="../")
+file<-load(file="./data/example_code.Rdata") #the dot brings R out from the code
+                                            #folder, back to the repo, then 
+                                            #tells it to go into data folder and
+                                            #select the identified file 
+              
 
 # Clear workspace and close all graphics devices --------------------------
+
 rm(list=ls())
 graphics.off()
 
@@ -36,9 +42,7 @@ plot(x,y,xlab='Normalized velocity',
 # Do linear regression ----------------------------------------------------
 
 fit<-glm(y~x) #generalized linear model 
-abline(fit,col='red')
-
-# Plot the results --------------------------------------------------------
+abline(fit,col='red') #add regression line to plot 
 
 
 
